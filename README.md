@@ -7,12 +7,12 @@ If you have a problem, a question or a suggestion, you can [join us on IRC](http
 
 Suggested order to play the games in
 
-1. Bandit
-2. Leviathan or Natas or Krypton
-3. Narnia
-4. Behemoth
-5. Utumno
-6. Maze
+1. [Bandit](https://overthewire.org/wargames/bandit): general skills, basics
+2. [Leviathan](https://overthewire.org/wargames/leviathan) or [Natas](https://overthewire.org/wargames/natas) (web exploitation) or [Krypton](https://overthewire.org/wargames/krypton)
+3. [Narnia](https://overthewire.org/wargames/narnia)
+4. [Behemoth](https://overthewire.org/wargames/behemoth)
+5. [Utumno](https://overthewire.org/wargames/utumno)
+6. [Maze](https://overthewire.org/wargames/maze)
 7. …
 
 Each shell game has its own SSH port
