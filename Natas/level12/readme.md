@@ -125,11 +125,11 @@ To exploit this vulnerability, open the developer toolbar, edit the code and rep
 
 Initial value:
 
-!["upload1"](files/upload1.png")
+!["upload1"](files/upload1.png)
 
 Modified value:
 
-!["upload2"]("files/upload2.png")
+!["upload2"](files/upload2.png)
 
 # Flag
 ~~~~
