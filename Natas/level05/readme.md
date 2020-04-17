@@ -18,3 +18,16 @@ Access disallowed. You are not logged in</div>
 </body>
 </html>
 ~~~~
+
+It says that we are not logged in. As most of the authentication require cookies, let's fire up the developper bar to list the cookies.
+
+!["flag"](files/flag.png)
+
+There is a cookie named `loggedin` set to `0`. Let's update the value to `1` and refresh the page:
+
+!["flag"](files/flag2.png)
+
+# Flag
+~~~~
+natas6:aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1
+~~~~
