@@ -1,14 +1,16 @@
 # Level 6
 ## Connection
+~~~~
 ssh bandit6@bandit.labs.overthewire.org -p2220
 password: DXjZPULLxYr17uwoI01bNLQbtFemEgo7
+~~~~
 ## Goal
 The password for the next level is stored somewhere on the server and has all of the following properties:
-
-    owned by user bandit7
-    owned by group bandit6
-    33 bytes in size
+* owned by user bandit7
+* owned by group bandit6
+* 33 bytes in size
 ## Solution
+~~~~
 $ find / -type f -size 33c -user bandit7 -group bandit6 | egrep -v "Permission denied"
 find: ‘/run/lvm’: Permission denied
 find: ‘/run/screen/S-bandit33’: Permission denied
@@ -71,7 +73,9 @@ find: ‘/proc/tty/driver’: Permission denied
 find: ‘/proc/25818/task/25818/fdinfo/6’: No such file or directory
 find: ‘/proc/25818/fdinfo/5’: No such file or directory
 find: ‘/boot/lost+found’: Permission denied
+~~~~
 
+~~~~
 $ cat /var/lib/dpkg/info/bandit7.password
 HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
-
+~~~~

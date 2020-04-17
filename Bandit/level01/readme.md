@@ -1,9 +1,11 @@
 # Level 1
 ## Connection
+~~~~
 ssh bandit1@bandit.labs.overthewire.org -p2220
 password: boJ9jbbUNNfktd78OOpsqOltutMc3MY1
+~~~~
 ## Goal
-The password for the next level is stored in a file called - located in the home directory
+The password for the next level is stored in a file called `-` located in the home directory
 ## Solution
 There is a file named "-"
 ~~~~
