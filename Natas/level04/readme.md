@@ -1,4 +1,5 @@
 # Level 4
+~~~~
 $ curl --user natas4:Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ http://natas4.natas.labs.overthewire.org
 <html>
 <head>
@@ -13,13 +14,12 @@ $ curl --user natas4:Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ http://natas4.natas.labs.o
 <body>
 <h1>natas4</h1>
 <div id="content">
-
+~~~~
 Access disallowed. You are visiting from "" while authorized users should come only from "http://natas5.natas.labs.overthewire.org/"
+~~~~
 <br/>
 <div id="viewsource"><a href="index.php">Refresh page</a></div>
 </div>
 </body>
 </html>
-
-
-
+~~~~
