@@ -74,4 +74,6 @@ $
 Very nice, the executable was spwaning a shell that allowed us to dump the password.
 
 # Flag
+~~~~
 leviathan2:ougahZi8Ta
+~~~~
