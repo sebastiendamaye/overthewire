@@ -62,7 +62,7 @@ We see a call to `strcmp` that compares our password with the expected one (`sex
 ~~~~
 $ ./check 
 password: sex
-$ ls
+$ ls <== from here, this is a shell spawned by ./check
 check
 $ cd /etc/leviathan_pass
 $ ls
@@ -71,6 +71,7 @@ $ cat leviathan2
 ougahZi8Ta
 $ 
 ~~~~
+Very nice, the executable was spwaning a shell that allowed us to dump the password.
 
 # Flag
 leviathan2:ougahZi8Ta
