@@ -92,7 +92,7 @@ This level is simimalr to [level 10](https://github.com/sebastiendamaye/overthew
 |---|---|
 | `passthru("grep -i $key dictionary.txt");` | `passthru("grep -i \"$key\" dictionary.txt");`
 
-This time, the user input is sourounded by double quotes.
+This time, the user input is surrounded by double quotes.
 
 ## Concatenate files
 Let's see if we can concatenate the file `/etc/natas_webpass/natas17` to our search as we did in [level 10](https://github.com/sebastiendamaye/overthewire/tree/master/Natas/level10):
