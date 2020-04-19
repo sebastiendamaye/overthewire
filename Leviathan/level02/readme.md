@@ -176,14 +176,7 @@ Now, what is interesting here is that the program is actually building a string 
 .text:080485ED                 call    _system                 ; executes string
 ```
 
-As the user input passed as argument is not sanitized, it is possible to inject commands;
-~~~~
-$ ./printfile ;whoami;pwd
-*** File Printer ***
-Usage: ./printfile filename
-leviathan2
-/home/leviathan2
-~~~~
+As the user input passed as argument is not sanitized, it is possible to inject commands.
 
 Let's create a file that will be named `x;sh` in the `/tmp` directory and let's call this file.
 ~~~~
