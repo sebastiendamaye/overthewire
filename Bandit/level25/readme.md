@@ -71,7 +71,7 @@ This is a OverTheWire game server. More information on http://www.overthewire.or
 Connection to bandit.labs.overthewire.org closed.
 ~~~
 
-It seems to works but the connection is automatically closed. As we were told in the instructions that bandit26 uses a different shell, let's check:
+It seems to work but the connection is automatically closed. As we were told in the instructions that bandit26 uses a different shell, let's check:
 
 ~~~
 $ cat /etc/passwd | grep "bandit2[5|6]"
