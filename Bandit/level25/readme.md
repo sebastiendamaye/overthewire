@@ -61,25 +61,6 @@ Let's test:
 $ ssh -i bandit26.sshkey bandit26@bandit.labs.overthewire.org -p2220
 This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
 
-Linux bandit 4.18.12 x86_64 GNU/Linux
-               
-      ,----..            ,----,          .---. 
-     /   /   \         ,/   .`|         /. ./|
-    /   .     :      ,`   .'  :     .--'.  ' ;
-   .   /   ;.  \   ;    ;     /    /__./ \ : |
-  .   ;   /  ` ; .'___,/    ,' .--'.  '   \' .
-  ;   |  ; \ ; | |    :     | /___/ \ |    ' ' 
-  |   :  | ; | ' ;    |.';  ; ;   \  \;      : 
-  .   |  ' ' ' : `----'  |  |  \   ;  `      |
-  '   ;  \; /  |     '   :  ;   .   \    .\  ; 
-   \   \  ',  /      |   |  '    \   \   ' \ |
-    ;   :    /       '   :  |     :   '  |--"  
-     \   \ .'        ;   |.'       \   \ ;     
-  www. `---` ver     '---' he       '---" ire.org     
-               
-              
-Welcome to OverTheWire!
-
 [SNIP]
   _                     _ _ _   ___   __  
  | |                   | (_) | |__ \ / /  
@@ -90,4 +71,57 @@ Welcome to OverTheWire!
 Connection to bandit.labs.overthewire.org closed.
 ~~~
 
-It works but the connection automatically closes. We'll probably see in the next level why.
+It seems to works but the connection is automatically closed. As we were told in the instructions that bandit26 uses a different shell, let's check:
+
+~~~
+$ cat /etc/passwd | grep "bandit2[5|6]"
+bandit25:x:11025:11025:bandit level 25:/home/bandit25:/bin/bash
+bandit26:x:11026:11026:bandit level 26:/home/bandit26:/usr/bin/showtext
+$ cat /usr/bin/showtext
+#!/bin/sh
+
+export TERM=linux
+
+more ~/text.txt
+exit 0
+~~~
+
+OK, now we know why the connection is automatically closed (`exit 0`). But just before, a banner is shown (`/home/bandit26/text.txt`) using the `more` command.
+
+Now there is a trick here... When we connect, the `more` command will display the banner. This banner is an ASCII art displaying "bandit26", which is only 6 lines height. If the `more` command is able to display all the text on your screen, it will exit. However, if the size of the screen does not allow the entire text to be displayed, it will wait and you can scroll the text.
+
+~~~
+  _                     _ _ _   ___   __
+ | |                   | (_) | |__ \ / /
+ | |__   __ _ _ __   __| |_| |_   ) / /_
+ | '_ \ / _` | '_ \ / _` | | __| / / '_ \
+ | |_) | (_| | | | | (_| | | |_ / /| (_) |
+ |_.__/ \__,_|_| |_|\__,_|_|\__|____\___/
+
+~~~
+
+Let's resize our window so that it will display only 2 or 3 lines and connect:
+
+!["more1"](files/more1.png)
+
+Now, you can enter into visual mode pressing the `v` key. Below is the extract from `man more`:
+~~~
+ v         Start up an editor at current  line.   The  editor  is
+           taken from the environment variable VISUAL if defined,
+           or EDITOR if VISUAL is not defined, or defaults to  vi
+           if neither VISUAL nor EDITOR is defined.
+~~~
+
+And now, we are editing the banner in `vi`. The great thing is that within `vi`, we can open a new file:
+~~~
+:e [file] - Opens a file, where [file] is the name of the file you want opened
+~~~
+
+Let's try to access our password file: `:e /etc/bandit_pass/bandit26`:
+
+!["more2"](files/more2.png)
+
+# Flag
+~~~
+bandit26:5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z
+~~~
