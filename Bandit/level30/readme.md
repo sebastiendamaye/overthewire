@@ -1,4 +1,4 @@
-# Level 29
+# Level 30
 ## Connection
 ~~~
 ssh bandit30@bandit.labs.overthewire.org -p2220
