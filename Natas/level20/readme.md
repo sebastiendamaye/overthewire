@@ -171,11 +171,11 @@ Your name: <input name="name" value="<?=$name?>"><br>
 ```
 
 ## Custom session file
-The print_credentials() function will reveal the password when the page loads only if `$_SESS['admin']` is equal to `1`.
+The `print_credentials()` function will reveal the password when the page loads only if `$_SESS['admin']` is equal to `1`.
 
-Now, having a close look at the way the functions mywrite() and myread() are written reveals that the session file is a list of keys and values separated with a space. Besides, the `myread()` function will not only read the file, but also create the session variables based on that file.
+Now, having a close look at the way the `mywrite()` and `myread()` functions are written reveals that the session file is a list of keys and values separated with a space, on several lines. Besides, the `myread()` function will not only read the file, but also create the session variables based on that file.
 
-*Extract of myread() function:*
+*Extract of `myread()` function:*
 ```php
 $data = file_get_contents($filename);
 foreach(explode("\n", $data) as $line) {
@@ -184,7 +184,7 @@ foreach(explode("\n", $data) as $line) {
 }
 ```
 
-*Extract of mywrite() function:*
+*Extract of `mywrite()` function:*
 ```php
 $filename = session_save_path() . "/" . "mysess_" . $sid;
 $data = "";
