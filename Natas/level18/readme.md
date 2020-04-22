@@ -168,7 +168,7 @@ function createID($user) {
 
 Whatever we put in the `username` field will create a random session cookie.
 
-Now, obviously, we need to call the `print_credentials()` function which will reveal the flag:
+Now, obviously, we need to call the `print_credentials()` function which will reveal the flag if `$_SESSION["admin"]` equals `1`:
 
 ```php
 function print_credentials() {
