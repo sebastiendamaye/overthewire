@@ -147,7 +147,7 @@ Password: <input name="password"><br>
 </html>
 ```
 
-When we loggin, we notice the creation of a session cookie (`PHPSESSID`) which has a value that is randomly set with a maximum of `640`.
+When we log in, we notice the creation of a session cookie (`PHPSESSID`) which has a value that is randomly set with a maximum of `640`.
 
 !["phpsessid"](files/phpsessid.png)
 
