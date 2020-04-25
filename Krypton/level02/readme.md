@@ -57,6 +57,8 @@ ciphertext  keyfile.dat
 ~~~~
 
 ## Solution
+Below are the files in the `/krypton/krypton2/` directory:
+
 ~~~~
 $ ls -la /krypton/krypton2/
 total 32
@@ -68,11 +70,52 @@ drwxr-xr-x 8 root     root     4096 Nov  4 05:21 ..
 -rw-r----- 1 krypton2 krypton2   13 Nov  4 05:21 krypton3
 ~~~~
 
+We obviously need to decrypt the krypton3 file:
 
-*** TO BE COMPLETED ***
+~~~
+$ cat /krypton/krypton2/krypton3
+OMQEMDUEQMEK
+~~~
 
+OK, let's follow the instructions:
+
+~~~
+krypton2@krypton:/krypton/krypton2$ cd $(mktemp -d)
+krypton2@krypton:/tmp/tmp.ds3TvzIbl8$ ln -s /krypton/krypton2/keyfile.dat 
+krypton2@krypton:/tmp/tmp.ds3TvzIbl8$ chmod 777 .           
+krypton2@krypton:/tmp/tmp.ds3TvzIbl8$ /krypton/krypton2/encrypt /etc/issue
+krypton2@krypton:/tmp/tmp.ds3TvzIbl8$ ls
+ciphertext  keyfile.dat
+krypton2@krypton:/tmp/tmp.ds3TvzIbl8$ cat ciphertext 
+GNGZFGXFEZX
+~~~
+
+So the `encrypt` program has encrypted the `/etc/issue` file (which initial content is shown below) into the following string: `GNGZFGXFEZX`.
+
+~~~
+krypton2@krypton:/tmp/tmp.ds3TvzIbl8$ cat /etc/issue
+Ubuntu 14.04.5 LTS \n \l
+~~~
+
+Analyzing the first letters, we can see that this is likely a Caesar cipher:
+
+~~~
+U->G
+B->N
+U->G
+N->Z
+T->F
+U->G
+~~~
+
+Let's use the `tr` function to decrypt our message:
+
+~~~
+krypton2@krypton:/tmp/tmp.ds3TvzIbl8$ cat /krypton/krypton2/krypton3 | tr 'A-Za-z' 'O-ZA-No-za-n'
+CAESARISEASY
+~~~
 
 # Flag
 ~~~~
-krypton3:...................
+krypton3:CAESARISEASY
 ~~~~
